@@ -3,9 +3,9 @@ def reverse_list_in_place(list):
 	end = len(list) - 1
 
 	while start < end:
-			list[start], list[end] = list[end], list[start]
-			start += 1
-			end -= 1
+		list[start], list[end] = list[end], list[start]
+		start += 1
+		end -= 1
 
 	return list
 
