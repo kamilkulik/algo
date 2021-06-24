@@ -1,8 +1,13 @@
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
 # Solution 1
 # iterate over every node of the linekd list and remove duplicates one by one
 # O(n) time and O(1) space
 
-def removeDuplicatesFromLinkedList(linkedList):
+def removeDuplicatesFromLinkedList_separately(linkedList):
 	prev = None
 	curr = linkedList
 	
@@ -34,4 +39,5 @@ def removeDuplicatesFromLinkedList(linked_list):
         current_node = next_unique_node
         
         
-        return linked_list
+    return linked_list
+
