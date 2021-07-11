@@ -26,3 +26,10 @@ def check_palindrome_reversed_string_array(string):
 def check_palindrome_reservsed_string_recursive(string, i = 0):
     j = len(string) - 1 - i
     return True if i >= j else string[i] == string[j] and check_palindrome_reservsed_string_recursive(string, i + 1)
+
+# MORE VERBOSE VERSION
+def check_palindrome_reservsed_string_recursive_verbose(string, i = 0):
+    j = len(string) - 1 - i
+    if i >= j: return True
+    if string[i] != string[j]: return False
+    return check_palindrome_reservsed_string_recursive_verbose(string, i + 1)
