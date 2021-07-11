@@ -19,3 +19,10 @@ def check_palindrome_reversed_string_array(string):
     for i in reversed(range(len(string))):
         new_string.append(string[i])
     return ''.join(new_string) == string
+
+# TIME O(n) there's gonna be n function calls on the call stack
+# SPACE O(n)
+
+def check_palindrome_reservsed_string_recursive(string, i = 0):
+    j = len(string) - 1 - i
+    return True if i >= j else string[i] == string[j] and check_palindrome_reservsed_string_recursive(string, i + 1)
