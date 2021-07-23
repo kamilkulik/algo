@@ -33,11 +33,9 @@ def removeDuplicatesFromLinkedList(linked_list):
         next_unique_node = current_node.next
         
         while next_unique_node is not None and current_node.value == next_unique_node.value:
-          next_unique_node = next_unique_node.next
+            next_unique_node = next_unique_node.next
         
         current_node.next = next_unique_node
         current_node = next_unique_node
         
-        
     return linked_list
-
