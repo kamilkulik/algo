@@ -29,8 +29,18 @@ def sorted_squared_array(array):
             left += 1
     result.append(array[left] ** 2)
 
-    return reverse(result)
+    return reverse_iteratively(result)
 
 def reverse(array):
     if len(array) == 1: return [array[0]]
     return [array[-1]] + reverse(array[:-1])
+
+def reverse_iteratively(array):
+    start = 0
+    end = len(array) - 1
+
+    while start < end:
+        array[start], array[end] = array[end], array[start]
+        start += 1
+        end -= 1
+    return array
