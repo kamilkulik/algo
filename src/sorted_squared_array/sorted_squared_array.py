@@ -44,3 +44,21 @@ def reverse_iteratively(array):
         start += 1
         end -= 1
     return array
+
+
+def sorted_squared_array_no_reversal(array):
+    output = [0 for _ in array]
+    largestIdx = len(array) - 1
+    smallestIdx = 0
+    
+    for idx in reversed(range(len(array))):
+        smallest = array[smallestIdx]
+        largest = array[largestIdx]
+        
+        if (abs(largest) > abs(smallest)):
+            output[idx] = largest ** 2
+            largestIdx -= 1
+        else:
+            output[idx] = smallest ** 2
+            smallestIdx += 1
+    return output
