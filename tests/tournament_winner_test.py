@@ -1,4 +1,5 @@
-from src.tournament_winner.tournament_winner import tournament_winner   
+from src.tournament_winner.tournament_winner import tournament_winner
+from src.tournament_winner.tournament_winner import tournament_winner_alt
 
 test_cases = [
     {
@@ -56,9 +57,16 @@ test_cases = [
     }
 ]
 
-def test_tournament_winner_1():
+def test_tournament_winner():
     for test_case in test_cases:
         competitions = test_case["competitions"]
         results = test_case["results"]
         winner = test_case["winner"]
         assert tournament_winner(competitions, results) == winner
+
+def test_tournament_winner_alt():
+    for test_case in test_cases:
+        competitions = test_case["competitions"]
+        results = test_case["results"]
+        winner = test_case["winner"]
+        assert tournament_winner_alt(competitions, results) == winner
