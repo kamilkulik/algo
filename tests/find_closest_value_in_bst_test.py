@@ -1,14 +1,6 @@
 from src.find_closest_value_in_bst.find_closest_value_in_bst import find_closest_value_in_bst
 from src.binary_search_tree.binary_search_tree import BST
-
-def build_binary_tree(tree):
-    binary_tree = BST(tree["root"])
-    remaining_nodes = tree["nodes"]
-
-    for node in remaining_nodes:
-        binary_tree.insert(node)
-
-    return binary_tree
+from src.binary_search_tree.build_bst import build_binary_tree
 
 def test_find_closest_value_in_bst_1():
     
