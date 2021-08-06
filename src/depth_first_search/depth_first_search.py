@@ -10,5 +10,5 @@ class Node():
     def depth_first_search(self, array):
         array.append(self.id)
         for child in self.children:
-            self.depth_first_search(child)
+            child.depth_first_search(array)
         return array
