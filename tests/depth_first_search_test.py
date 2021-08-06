@@ -1,7 +1,16 @@
 from src.depth_first_search.depth_first_search import Node
 
 def build_graph(start_node, nodes):
-    
+    # 1 find node whose id is start_node.id
+    current_nodes_children = next(iter([node["children"] for node in nodes if node["id"] == start_node.id]))
+    # 2 for each of its children
+    for child in current_nodes_children:
+    # 3 call add_child method on Node class
+        updated_start_node = start_node.add_child(child)
+    # 4 find added node in start_nodes children
+        added_child = next((iter([node for node in updated_start_node.children if node.id == child])))
+    # 5 call recursively build_graph on variable from step 4, pass nodes too
+        build_graph(added_child, nodes)
             
 def test_depth_first_search():
     graph = {
@@ -26,7 +35,7 @@ def test_depth_first_search():
     start_node = graph["graph"]["startNode"]
     nodes = graph["graph"]["nodes"]
 
-    first_node = Node(start_node)
-    built_graph = build_graph(first_node, nodes)
+    complete_graph = Node(start_node)
+    build_graph(complete_graph, nodes)
 
-    assert built_graph.children is [nodes[0]["children"]]
+    assert complete_graph.depth_first_search([]) == ["A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"]
