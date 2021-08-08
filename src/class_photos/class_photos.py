@@ -29,3 +29,7 @@ def class_photos(red_shirt_heights, blue_shirt_heights):
                 return False
 
     return True
+
+# COMPLEXITY
+# TIME: O(log(n)) because of looping through both arrays
+# SPACE: O(1) because we're sorting in place and just adding one new variable
