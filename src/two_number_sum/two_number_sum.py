@@ -18,8 +18,6 @@ def two_num_sum(array, target):
 	
 	return []
 
-print(two_num_sum([3, 5, -4, 8, 11, 1, -1, 6], 10))
-
 # pointer based solution
 # time: O(log(n)), space: O(1)
 
@@ -41,6 +39,3 @@ def two_num_sum_pointer(array, target):
 			pointer_right -= 1
 	
 	return []
-
-
-print(two_num_sum_pointer([3, 5, -4, 8, 11, 1, -1, 6], 10))
