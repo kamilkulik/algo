@@ -15,7 +15,7 @@ def validate_subsequence(array, sequence):
 # O(n) time
 # O(1) time
 
-def validate_subquence_for_loop(array, sequence):
+def validate_subsequence_for_loop(array, sequence):
     seq_pointer = 0
     for value in array:
         if seq_pointer == len(sequence):
