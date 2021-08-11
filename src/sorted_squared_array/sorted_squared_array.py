@@ -2,6 +2,11 @@
 # in ascending order and returns a new array of the same length with the squares
 # of the original integers also sorted in ascending order.
 
+# this first is a naive approach because we're bumping up time complexity of algo by sorting the square array at the end
+# Complexity
+# O(nlog(n)) time
+# O(n) space
+
 def sorted_squared_array_naive(array):
     
     result = []
@@ -47,18 +52,28 @@ def reverse_iteratively(array):
 
 
 def sorted_squared_array_no_reversal(array):
+    # 1. initiate an array of zeros whose length is same as input array's to have a placeholder array to update with squared values
     output = [0 for _ in array]
+    # 2. initiate two variables which will represent indexes of smallest and largest numbers in input array
+    # we'll move these effectively pointers towards inside of the array
     largestIdx = len(array) - 1
     smallestIdx = 0
     
+    # 3. loop over array in reverse
+    # in reverse because we want to start with rightmost element which is guaranteed to be the largest positive integer
     for idx in reversed(range(len(array))):
+        # 4. initiate two helper variables
         smallest = array[smallestIdx]
         largest = array[largestIdx]
         
+        # 5. condition to check if absolute value of smallest and greatest input integers have same relationship
         if (abs(largest) > abs(smallest)):
+            # 6. if yes, update placeholder with square of the larger number
             output[idx] = largest ** 2
+            # 7. Move largestIdx pointer leftward
             largestIdx -= 1
         else:
+            # 8. Handle else case
             output[idx] = smallest ** 2
             smallestIdx += 1
     return output
