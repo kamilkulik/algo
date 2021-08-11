@@ -1,18 +1,16 @@
-from src.tournament_winner.tournament_winner import tournament_winner
-from src.tournament_winner.tournament_winner import tournament_winner_alt
+import pytest
+from src.tournament_winner.tournament_winner import tournament_winner, tournament_winner_alt
 
 test_cases = [
-    {
-        "competitions": [
+    (
+        [
             ["HTML", "C#"],
             ["C#", "Python"],
             ["Python", "HTML"]
-        ],
-        "results": [0, 0, 1],
-        "winner": "Python",
-    },
-    {
-        "competitions": [
+        ], [0, 0, 1], "Python",
+    ),
+    (
+        [
             ["HTML", "Java"],
             ["Java", "Python"],
             ["Python", "HTML"],
@@ -23,19 +21,15 @@ test_cases = [
             ["HTML", "SQL"],
             ["SQL", "Python"],
             ["SQL", "Java"]
-        ],
-        "results": [0, 1, 1, 1, 0, 1, 0, 1, 1, 0],
-        "winner": "C#",
-    },
-    {
-        "competitions": [
+        ], [0, 1, 1, 1, 0, 1, 0, 1, 1, 0], "C#",
+    ),
+    (
+        [
             ["Bulls", "Eagles"]
-        ],
-        "results": [1],
-        "winner": "Bulls",
-    },
-    {
-        "competitions": [
+        ], [1], "Bulls",
+    ),
+    (
+        [
             ["AlgoMasters", "FrontPage Freebirds"],
             ["Runtime Terror", "Static Startup"],
             ["WeC#", "Hypertext Assassins"],
@@ -51,22 +45,14 @@ test_cases = [
             ["AlgoMasters", "Hypertext Assassins"],
             ["WeC#", "Runtime Terror"],
             ["FrontPage Freebirds", "Static Startup"]
-        ],
-        "results": [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
-        "winner": "AlgoMasters",
-    }
+        ], [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0], "AlgoMasters",
+    )
 ]
 
-def test_tournament_winner():
-    for test_case in test_cases:
-        competitions = test_case["competitions"]
-        results = test_case["results"]
-        winner = test_case["winner"]
-        assert tournament_winner(competitions, results) == winner
+@pytest.mark.parametrize('competitions, results, winner', test_cases)
+def test_tournament_winner(competitions, results, winner):
+    assert tournament_winner(competitions, results) == winner
 
-def test_tournament_winner_alt():
-    for test_case in test_cases:
-        competitions = test_case["competitions"]
-        results = test_case["results"]
-        winner = test_case["winner"]
-        assert tournament_winner_alt(competitions, results) == winner
+@pytest.mark.parametrize('competitions, results, winner', test_cases)
+def test_tournament_winner(competitions, results, winner):
+    assert tournament_winner_alt(competitions, results) == winner
