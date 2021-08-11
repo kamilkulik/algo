@@ -14,10 +14,7 @@ def ceasar_cipher_encryptor(string, key):
     return ''.join(encrypted_string)
 
 def wrap_pointer(current_position, key):
-    if key + current_position < 26:
-        return key + current_position
-    else:
-        return (key + current_position) % 26
+    return (key + current_position) % 26
 
 
 def ceasar_cipher_encryptor_alt(string, key):
