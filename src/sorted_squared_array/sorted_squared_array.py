@@ -50,6 +50,9 @@ def reverse_iteratively(array):
         end -= 1
     return array
 
+# Complexity
+# O(n) time
+# O(n) space
 
 def sorted_squared_array_no_reversal(array):
     # 1. initiate an array of zeros whose length is same as input array's to have a placeholder array to update with squared values
