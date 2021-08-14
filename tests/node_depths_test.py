@@ -73,7 +73,7 @@ def test_node_depths_3():
             ],
             "root": "1"
         }
-    }
+    }   
 
     binary_tree = build_binary_tree(tree)
 
