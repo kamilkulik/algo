@@ -6,6 +6,6 @@ def build_graph(start_node, nodes):
     # 3 call add_child method on Node class
         updated_start_node = start_node.add_child(child)
     # 4 find added node in start_nodes children
-        added_child = next((iter([node for node in updated_start_node.children if node.id == child])))
+        added_child = next(iter([node for node in updated_start_node.children if node.id == child]))
     # 5 call recursively build_graph on variable from step 4, pass nodes too
         build_graph(added_child, nodes)
