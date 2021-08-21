@@ -10,8 +10,6 @@ def nthFib_naive(n):
     elif n == 2: return 1
     else: return nthFib_naive(n - 1) + nthFib_naive(n - 2)
 
-print(nthFib_naive(6))
-
 # memoised recursion:
 # time: O(n) time, space: O(n)
 def nthFib_recursion_memoised(n, memoised = { 1: 0, 2: 1}):
@@ -20,8 +18,6 @@ def nthFib_recursion_memoised(n, memoised = { 1: 0, 2: 1}):
     else:
         memoised[n] = nthFib_recursion_memoised(n - 1) + nthFib_recursion_memoised(n - 2)
         return memoised[n]
-
-print(nthFib_recursion_memoised(6))
 
 # iterative - by far the best
 # time: O(n) time, space O(1)
@@ -37,5 +33,3 @@ def nthFib(n):
         last_two_numbers[1] = next_no
         counter += 1
     return last_two_numbers[1]
-
-print(nthFib(6))
