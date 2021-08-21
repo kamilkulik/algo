@@ -6,10 +6,14 @@ test_cases = [
     (10, 34),
     (8, 13),
     (2, 1),
-    (3, 2),
-    (4, 3)
+    (3, 1),
+    (4, 2)
 ]
 
 @pytest.mark.parametrize('number, nth_fib', test_cases)
 def test_nth_fib_naive(number, nth_fib):
     assert nthFib_naive(number) == nth_fib
+
+@pytest.mark.parametrize('number, nth_fib', test_cases)
+def test_nth_fib(number, nth_fib):
+    assert nthFib(number) == nth_fib
