@@ -19,8 +19,6 @@ def bubble_sort(array):
 def swap(array, i):
     array[i], array[i + 1] = array[i + 1], array[i]
 
-print(bubble_sort([5, 2, 1, -6, 10, 123, -432, 78, 44]))
-
 # slight optimisation that doesn't affect space-time complexity:
 
 def bubble_sort_optimised(array):
@@ -37,5 +35,3 @@ def bubble_sort_optimised(array):
 
 def swap(array, i):
     array[i], array[i + 1] = array[i + 1], array[i]
-
-print(bubble_sort_optimised([5, 2, 1, -6, 10, 123, -432, 78, 44]))
