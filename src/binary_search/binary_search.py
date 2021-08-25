@@ -1,5 +1,7 @@
 # the input array needs to be sorted
 # the iterative approach
+# O(long(n)) time complexity
+# O(log(n)) space complexity
 
 def binarySearch(array, target):
 	# 1. Pass into helper function two pointers - left and right to keep track of current bounds
