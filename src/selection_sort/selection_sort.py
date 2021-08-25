@@ -8,15 +8,15 @@
 # O(n^2) time and O(1) space
 
 def selection_sort(array):
-    for i in range(len(array) -1):
-        j = i
-        for j in range(j, len(array)):
-            if array[i] > array[j]:
-                swap(array, i, j)
-            j += 1
+    current_idx = 0
+    while current_idx < len(array) -1:
+        smallest_idx = current_idx
+        for i in range(current_idx + 1, len(array)):
+            if array[smallest_idx] > array[i]:
+                smallest_idx = i
+        swap(current_idx, smallest_idx, array)
+        current_idx += 1
     return array
 
-def swap(array, i, j):
+def swap(i, j, array):
     array[i], array[j] = array[j], array[i]
-
-print(selection_sort([5, 2, 1, -6, 10, 123, -432, 78, 44]))
