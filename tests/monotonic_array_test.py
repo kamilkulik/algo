@@ -14,6 +14,7 @@ test_cases = [
 
 ids = ["Array: {}, Monotonic: {}".format(case[0], case[1]) for case in test_cases]
 
-@pytest.mark.parametrize('array, is_monotonic', test_cases, ids = ids)
+
+@pytest.mark.parametrize('array, is_monotonic', test_cases, ids=ids)
 def test_monotonic_array(array, is_monotonic):
     assert monotonic_array(array) == is_monotonic
