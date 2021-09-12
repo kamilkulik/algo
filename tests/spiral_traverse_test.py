@@ -29,12 +29,13 @@ test_cases = [
     ([
          [1, 3, 2, 5, 4, 7, 6]
      ], [1, 3, 2, 5, 4, 7, 6]),
-    ([1], [1])
+    ([[1]], [1])
 ]
 
-ids = ['{} x {} array'.format(len(case), len(case[0])) for case in test_cases]
+ids = ['{} by {} array'.format(len(case[0]), len(case[0][0])) for case in test_cases]
 
+#len(case[0]), len(case[0])
 
-@pytest.mark.parametrize('input, result', test_cases, ids=ids):
-def test_spiral_traverse(input, result):
-    assert spiral_traverse(input) == result
+@pytest.mark.parametrize('input_array, result', test_cases, ids=ids)
+def test_spiral_traverse(input_array, result):
+    assert spiral_traverse(input_array) == result
