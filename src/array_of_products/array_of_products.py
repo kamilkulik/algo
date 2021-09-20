@@ -29,3 +29,19 @@ def array_of_products(array):
         products[i] = left_array[i] * right_array[i]
 
     return products
+
+
+def array_of_products_optimised(array):
+    products = [1 for _ in range(len(array))]
+
+    running_product_left = 1
+    for i in range(len(array)):
+        products[i] *= running_product_left
+        running_product_left *= array[i]
+
+    running_product_right = 1
+    for i in reversed(range(len(array))):
+        products[i] *= running_product_right
+        running_product_right *= array[i]
+
+    return products

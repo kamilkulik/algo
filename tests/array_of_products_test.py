@@ -1,5 +1,5 @@
 import pytest
-from src.array_of_products.array_of_products import array_of_products, array_of_products_brute
+from src.array_of_products.array_of_products import array_of_products, array_of_products_brute, array_of_products_optimised
 
 test_cases = [
     ([0, 0, 0, 0], [0, 0, 0, 0]),
@@ -20,3 +20,7 @@ def test_array_of_products_brute(input_array, output_array):
 @pytest.mark.parametrize('input_array, output_array', test_cases, ids=ids)
 def test_array_of_products(input_array, output_array):
     assert array_of_products(input_array) == output_array
+
+@pytest.mark.parametrize('input_array, output_array', test_cases, ids=ids)
+def test_array_of_products_optimised(input_array, output_array):
+    assert array_of_products_optimised(input_array) == output_array
