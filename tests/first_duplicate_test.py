@@ -1,5 +1,5 @@
 import pytest
-from src.first_duplicate.first_duplicate import first_duplicate, first_duplicate_brute
+from src.first_duplicate.first_duplicate import first_duplicate, first_duplicate_brute, first_duplicate_optimum
 
 test_cases = [
     ([2, 1, 5, 2, 3, 3, 4], 2),
@@ -21,3 +21,9 @@ def test_first_duplicate(array, result):
 @pytest.mark.parametrize('array, result', test_cases, ids=ids)
 def test_first_duplicate_brute(array, result):
     assert first_duplicate_brute(array) == result
+
+
+@pytest.mark.parametrize('array, result', test_cases, ids=ids)
+def test_first_duplicate_optimum(array, result):
+    assert first_duplicate_optimum(array) == result
+
