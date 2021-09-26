@@ -18,3 +18,12 @@ def first_duplicate_brute(array):
             if second_duplicate == current_element:
                 minimum_second_idx = min(minimum_second_idx, j)
     return array[minimum_second_idx] if minimum_second_idx < len(array) else -1
+
+
+def first_duplicate_optimum(array):
+    for value in array:
+        abs_value = abs(value)
+        if array[abs_value - 1] < 0:
+            return abs_value
+        array[abs_value - 1] *= -1
+    return - 1
