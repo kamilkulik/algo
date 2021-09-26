@@ -1,3 +1,4 @@
+# time O(n) time, space O(n)
 def first_duplicate(array):
     duplicates = set()
     for value in array:
