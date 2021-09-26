@@ -1,5 +1,5 @@
 import pytest
-from src.first_duplicate.first_duplicate import first_duplicate
+from src.first_duplicate.first_duplicate import first_duplicate, first_duplicate_brute
 
 test_cases = [
     ([2, 1, 5, 2, 3, 3, 4], 2),
@@ -16,3 +16,8 @@ ids = ['input array: {}, expected result: {}'.format(case[0], case[1]) for case 
 @pytest.mark.parametrize('array, result', test_cases, ids=ids)
 def test_first_duplicate(array, result):
     assert first_duplicate(array) == result
+
+
+@pytest.mark.parametrize('array, result', test_cases, ids=ids)
+def test_first_duplicate_brute(array, result):
+    assert first_duplicate_brute(array) == result
