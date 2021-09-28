@@ -19,6 +19,7 @@ def first_duplicate_brute(array):
                 minimum_second_idx = min(minimum_second_idx, j)
     return array[minimum_second_idx] if minimum_second_idx < len(array) else -1
 
+
 # time O(n) space O(1)
 def first_duplicate_optimum(array):
     for value in array:
