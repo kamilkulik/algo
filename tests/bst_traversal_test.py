@@ -1,5 +1,5 @@
 import pytest
-from src.bst_traversal.bst_traversal import Bst_traversal
+from src.bst_traversal.bst_traversal import BstTraversal
 from src.binary_tree.build_bt import build_binary_tree
 
 test_cases = [
@@ -30,16 +30,17 @@ test_cases = [
                 ],
                 "root": "5000"
             }
+        },
+        {
+            "in_order_array": [1, 1, 1, 1, 1, 2, 3, 5, 5, 15, 22, 203, 204, 205, 206, 207, 208, 502, 5000, 55000],
+            "post_order_array": [1, 1, 1, 1, 1, 3, 2, 5, 203, 206, 208, 207, 205, 204, 502, 22, 15, 5, 55000, 5000],
+            "pre_order_array": [5000, 5, 2, 1, 1, 1, 1, 1, 3, 15, 5, 22, 502, 204, 203, 205, 207, 206, 208, 55000]
         }
-    ), {
-        "in_order_array": [1, 1, 1, 1, 1, 2, 3, 5, 5, 15, 22, 203, 204, 205, 206, 207, 208, 502, 5000, 55000],
-        "post_order_array": [1, 1, 1, 1, 1, 3, 2, 5, 203, 206, 208, 207, 205, 204, 502, 22, 15, 5, 55000, 5000],
-        "pre_order_array": [5000, 5, 2, 1, 1, 1, 1, 1, 3, 15, 5, 22, 502, 204, 203, 205, 207, 206, 208, 55000]
-    }
+    )
 ]
 
 
-@pytest.mark.parametrize('tree, in_order_array')
+@pytest.mark.parametrize('tree, in_order_array', test_cases)
 def test_in_order_bst_traversal(tree, in_order_array):
     built_tree = build_binary_tree(tree)
-    assert Bst_traversal.in_order(tree) == in_order_array
+    assert BstTraversal.in_order(built_tree, []) == in_order_array["in_order_array"]
