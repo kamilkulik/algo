@@ -40,7 +40,13 @@ test_cases = [
 ]
 
 
-@pytest.mark.parametrize('tree, in_order_array', test_cases)
-def test_in_order_bst_traversal(tree, in_order_array):
+@pytest.mark.parametrize('tree, expected_results', test_cases)
+def test_in_order_bst_traversal(tree, expected_results):
     built_tree = build_binary_tree(tree)
-    assert BstTraversal.in_order(built_tree, []) == in_order_array["in_order_array"]
+    assert BstTraversal.in_order(built_tree, []) == expected_results["in_order_array"]
+
+
+@pytest.mark.parametrize('tree, expected_results', test_cases)
+def test_in_order_bst_traversal(tree, expected_results):
+    built_tree = build_binary_tree(tree)
+    assert BstTraversal.in_order(built_tree, []) == expected_results["post_order_array"]
