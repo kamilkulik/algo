@@ -15,3 +15,11 @@ class BstTraversal:
             BstTraversal.post_order(tree.right, array)
             array.append(tree.value)
         return array
+
+    @staticmethod
+    def pre_order(tree, array):
+        if tree is not None:
+            array.append(tree.value)
+            BstTraversal.pre_order(tree.left, array)
+            BstTraversal.pre_order(tree.right, array)
+        return array
