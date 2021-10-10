@@ -69,3 +69,20 @@ def construct_min_height_bst_optimised(array, bst, start_idx, end_idx):
     construct_min_height_bst(array, bst, start_idx, mid_idx - 1)
     construct_min_height_bst(array, bst, mid_idx + 1, end_idx)
     return bst
+
+
+# cleanest solution
+
+
+def min_height_bst_cleanest(array):
+    return construct_min_height_bst_cleanest(array, 0, len(array) - 1)
+
+
+def construct_min_height_bst_cleanest(array, start_idx, end_idx):
+    if end_idx < start_idx:
+        return
+    mid_idx = (start_idx + end_idx) // 2  # round down for numbers not devisible by 2
+    bst = BST(array[mid_idx])
+    bst.left = construct_min_height_bst_cleanest(array, start_idx, mid_idx - 1)
+    bst.right = construct_min_height_bst_cleanest(array, mid_idx + 1, end_idx)
+    return bst
