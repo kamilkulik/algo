@@ -22,7 +22,33 @@ test_cases = [
                 "root": "10",
             }
         },
-    )
+    ),
+    (
+        [1, 2],
+        {
+            "tree": {
+                "nodes": [
+                    {"id": "1", "left": None, "right": "2", "value": 1},
+                    {"id": "2", "left": None, "right": None, "value": 2},
+                ],
+                "root": "1",
+            }
+        },
+    ),
+    (
+        [1, 2, 5, 7],
+        {
+            "tree": {
+                "nodes": [
+                    {"id": "2", "left": "1", "right": "5", "value": 2},
+                    {"id": "5", "left": None, "right": "7", "value": 5},
+                    {"id": "7", "left": None, "right": None, "value": 7},
+                    {"id": "1", "left": None, "right": None, "value": 1},
+                ],
+                "root": "2",
+            }
+        },
+    ),
 ]
 
 
