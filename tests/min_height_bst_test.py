@@ -1,6 +1,6 @@
 import pytest
 from src.bst_depth.bst_depth import get_bst_height
-from src.min_height_bst.min_height_bst import min_height_bst
+from src.min_height_bst.min_height_bst import min_height_bst, min_height_bst_optimised
 from src.binary_tree.build_bt import build_binary_tree
 
 test_cases = [
@@ -31,5 +31,14 @@ def test_min_height_bst(array, tree):
     bst = build_binary_tree(tree)
     min_height = get_bst_height(bst)
     min_height_algo_bst = min_height_bst(array)
+    bst_height = get_bst_height(min_height_algo_bst)
+    assert bst_height == min_height
+
+
+@pytest.mark.parametrize("array, tree", test_cases)
+def test_min_height_bst_optimised(array, tree):
+    bst = build_binary_tree(tree)
+    min_height = get_bst_height(bst)
+    min_height_algo_bst = min_height_bst_optimised(array)
     bst_height = get_bst_height(min_height_algo_bst)
     assert bst_height == min_height
