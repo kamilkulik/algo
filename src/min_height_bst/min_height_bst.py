@@ -38,3 +38,34 @@ class BST:
                 self.right = BST(value)
             else:
                 self.right.insert(value)
+
+
+# improved version of above algorithm
+# it's improved because we're not using nlog(n) insertion method
+# but instead we'll be inserting the value manually
+
+# O(n) time | O(n) space
+
+
+def min_height_bst_optimised(array):
+    return construct_min_height_bst(array, None, 0, len(array) - 1)
+
+
+def construct_min_height_bst_optimised(array, bst, start_idx, end_idx):
+    if end_idx < start_idx:
+        return
+    mid_idx = (start_idx + end_idx) // 2  # round down for numbers not devisible by 2
+    new_bst_node = BST(array[mid_idx])
+    if bst is None:
+        bst = new_bst_node
+    else:
+        if array[mid_idx] < bst.value:
+            bst.left = new_bst_node
+            bst = bst.left
+        else:
+            bst.right = new_bst_node
+            bst = bst.right
+
+    construct_min_height_bst(array, bst, start_idx, mid_idx - 1)
+    construct_min_height_bst(array, bst, mid_idx + 1, end_idx)
+    return bst
