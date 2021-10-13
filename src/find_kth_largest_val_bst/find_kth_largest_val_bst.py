@@ -4,6 +4,7 @@ class TraversalInfo:
         self.kth_value = kth_value
 
 
+# Complexity: O(h + k) time | O(h) space, where h is height of the tree and k is the number of nodes to traverse
 def find_kth_largest_val_bst(bst, k):
     traversal_info = TraversalInfo(0, -1)
     reverse_in_order_traverse(bst, k, traversal_info)
