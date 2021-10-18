@@ -1,5 +1,5 @@
 import pytest
-from src.reconstruct_bst.reconstruct_bst import reconstruct_bst
+from src.reconstruct_bst.reconstruct_bst import reconstruct_bst, reconstruct_bst_optimum
 
 test_cases = [
     (
@@ -71,3 +71,8 @@ test_cases = [
 @pytest.mark.parametrize("pre_order_traversal_values, expected_bst", test_cases)
 def test_reconstruct_bst(pre_order_traversal_values, expected_bst):
     assert reconstruct_bst(pre_order_traversal_values) == expected_bst
+
+
+@pytest.mark.parametrize("pre_order_traversal_values, expected_bst", test_cases)
+def test_reconstruct_bst_optimum(pre_order_traversal_values, expected_bst):
+    assert reconstruct_bst_optimum(pre_order_traversal_values) == expected_bst
