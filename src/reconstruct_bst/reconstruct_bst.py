@@ -5,6 +5,7 @@ class BST:
         self.right = right
 
 
+# O(nlog(n)) time | O(n) space
 def reconstruct_bst(pre_order_traversal_values):
     # return None if there are no more nodes to be created
     if len(pre_order_traversal_values) == 0:
@@ -29,6 +30,7 @@ class TreeInfo:
         self.root_idx = root_idx
 
 
+# O(n) time | O(n) space
 def reconstruct_bst_optimum(pre_order_traversal_values):
     tree_info = TreeInfo(0)
     return reconstruct_bst_from_root_node(pre_order_traversal_values, float("-inf"), float("inf"), tree_info)
