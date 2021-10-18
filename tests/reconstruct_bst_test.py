@@ -1,6 +1,6 @@
 import pytest
 from src.binary_tree.build_bt import build_binary_tree
-from src.reconstruct_bst.reconstruct_bst import reconstruct_bst
+from src.reconstruct_bst.reconstruct_bst import reconstruct_bst, reconstruct_bst_optimum
 from src.bst_traversal.bst_traversal import BstTraversal
 
 test_cases = [
@@ -78,6 +78,11 @@ def test_reconstruct_bst(pre_order_traversal_values, expected_bst):
     assert expected_bst_pre_order_array == test_bst_pre_order_array
 
 
-# @pytest.mark.parametrize("pre_order_traversal_values, expected_bst", test_cases)
-# def test_reconstruct_bst_optimum(pre_order_traversal_values, expected_bst):
-#     assert reconstruct_bst_optimum(pre_order_traversal_values) == expected_bst
+@pytest.mark.parametrize("pre_order_traversal_values, expected_bst", test_cases)
+def test_reconstruct_bst_optimum(pre_order_traversal_values, expected_bst):
+    expected_binary_tree = build_binary_tree(expected_bst)
+    expected_bst_pre_order_array = BstTraversal.pre_order(expected_binary_tree, [])
+    test_bst_pre_order_array = BstTraversal.pre_order(
+        reconstruct_bst_optimum(pre_order_traversal_values), []
+    )
+    assert expected_bst_pre_order_array == test_bst_pre_order_array
