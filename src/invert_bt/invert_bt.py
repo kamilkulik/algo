@@ -2,6 +2,7 @@ def swap_left_and_right(tree):
     tree.left, tree.right = tree.right, tree.left
 
 
+# O(n) time | O(n) space
 def invert_bt_iterative(tree):
     queue = [tree]
     while len(queue):
@@ -14,6 +15,7 @@ def invert_bt_iterative(tree):
     return tree
 
 
+# O(n) time | O(d) space where d is depth of the tree
 def invert_bt_recursive(tree):
     if tree is None:
         return
