@@ -1,9 +1,12 @@
 class BT:
-    def __init__(self, id, value = None):
+    def __init__(self, id, value=None):
         self.id = id
         self.value = value
         self.left = None
         self.right = None
+
+    def __eq__(self, other):
+        return self.value == other.value and self.left == other.left and self.right == other.right
 
     def insert(self, id, left, right, value):
         if self.id == id:
@@ -35,7 +38,7 @@ class BT:
     #                 current_node.left = None
     #             if right is not None:
     #                 current_node.right = BT(right)
-    #             else: 
+    #             else:
     #                 current_node.right = None
     #             break
     #         else:
