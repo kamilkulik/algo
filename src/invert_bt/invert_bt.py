@@ -21,3 +21,4 @@ def invert_bt_recursive(tree):
     swap_left_and_right(tree)
     invert_bt_recursive(tree.left)
     invert_bt_recursive(tree.right)
+    return tree
