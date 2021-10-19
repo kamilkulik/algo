@@ -110,3 +110,11 @@ def test_invert_binary_tree_iterative(binary_tree, inverted_binary_tree):
     output_tree = invert_bt_iterative(input_tree)
     expected_tree = build_binary_tree(inverted_binary_tree)
     assert output_tree == expected_tree
+
+
+@pytest.mark.parametrize("binary_tree, inverted_binary_tree", test_cases)
+def test_invert_binary_tree_recursive(binary_tree, inverted_binary_tree):
+    input_tree = build_binary_tree(binary_tree)
+    output_tree = invert_bt_recursive(input_tree)
+    expected_tree = build_binary_tree(inverted_binary_tree)
+    assert output_tree == expected_tree
