@@ -15,6 +15,6 @@ test_cases = [
 labels = [f"words: {words}, chars: {outputs}" for words, outputs in test_cases]
 
 
-@pytest.mark.parametrize("words, characters", test_cases, labels)
+@pytest.mark.parametrize("words, characters", test_cases, ids=labels)
 def test_min_characters_for_words(words, characters):
     assert min_characters_for_words(words) == characters
