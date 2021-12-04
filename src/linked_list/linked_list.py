@@ -3,9 +3,22 @@ class Linked_list:
         self.value = value
         self.next = None
 
+    def __eq__(self, other):
+        current_node = self
+        current_other = other
+        while current_node.next is not None:
+            if current_node.value != current_other.value:
+                return False
+            current_node = current_node.next
+            current_other = current_other.next
+        return True
+
     def insert(self, value):
         next_node = Linked_list(value)
-        self.next = next_node
+        current_node = self
+        while current_node.next is not None:
+            current_node = current_node.next
+        current_node.next = next_node
 
 
 def build_linked_list(input):
