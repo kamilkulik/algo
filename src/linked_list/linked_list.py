@@ -9,7 +9,7 @@ class Linked_list:
 
 
 def build_linked_list(input):
-    nodes = input["linkedList"]["nodes"]
+    nodes = input["nodes"]
     linked_list = None
     for node in nodes:
         if linked_list is None:
