@@ -35,7 +35,7 @@ def dp_bu_iterative(daily_price):
         strategy_hold = cash_owning_share
         strategy_sell = cash_owning_share + price
         strategy_avoid = cash_not_owning_share
-        # next states
-        cash_not_owning_share = max(strategy_buy, strategy_avoid)
-        cash_owning_share = max(strategy_sell, strategy_hold)
+        # current states
+        cash_owning_share = max(strategy_buy, strategy_hold)
+        cash_not_owning_share = max(strategy_sell, strategy_avoid)
     return cash_not_owning_share
