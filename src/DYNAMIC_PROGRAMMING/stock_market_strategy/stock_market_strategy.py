@@ -24,3 +24,18 @@ def dp_td_recursive(daily_price):
     last_day = len(daily_price) - 1
     no_stock = False
     return optimal_profit(last_day, no_stock)
+
+
+def dp_bu_iterative(daily_price):
+    cash_not_owning_share = 0
+    cash_owning_share = -float("inf")
+
+    for price in daily_price:
+        strategy_buy = cash_not_owning_share - price
+        strategy_hold = cash_owning_share
+        strategy_sell = cash_owning_share + price
+        strategy_avoid = cash_not_owning_share
+        # next states
+        cash_not_owning_share = max(strategy_buy, strategy_avoid)
+        cash_owning_share = max(strategy_sell, strategy_hold)
+    return cash_not_owning_share
