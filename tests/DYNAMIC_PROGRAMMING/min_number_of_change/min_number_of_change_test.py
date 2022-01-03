@@ -1,5 +1,5 @@
 import pytest
-from src.DYNAMIC_PROGRAMMING.min_num_of_change.min_num_of_change import (
+from src.DYNAMIC_PROGRAMMING.min_number_of_change.min_number_of_change import (
     min_num_of_change,
 )
 
