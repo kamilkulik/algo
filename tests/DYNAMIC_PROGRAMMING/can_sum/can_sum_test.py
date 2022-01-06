@@ -13,6 +13,11 @@ test_cases = [
 ids = [f"Target: {case[0]}, Numbers: {case[1]}" for case in test_cases]
 
 
+def reset_defaults(func):
+    func.__defaults__ = ({},)
+
+
 @pytest.mark.parametrize("target, numbers, sum_possible", test_cases, ids=ids)
 def test_can_sum(target, numbers, sum_possible):
+    reset_defaults(can_sum)
     assert can_sum(target, numbers) == sum_possible
