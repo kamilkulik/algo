@@ -1,4 +1,6 @@
-def how_sum(target, numbers):
+def how_sum(target, numbers, memo={}):
+    if target in memo:
+        return memo[target]
     if target == 0:
         return []
     if target < 0:
@@ -10,6 +12,8 @@ def how_sum(target, numbers):
 
         if remainder_result is not None:
             remainder_result.append(num)
-            return remainder_result
+            memo[target] = remainder_result
+            return memo[target]
 
+    memo[target] = None
     return None
