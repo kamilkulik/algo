@@ -1,5 +1,5 @@
 import pytest
-from src.can_construct.can_construct import can_construct
+from src.DYNAMIC_PROGRAMMING.can_construct.can_construct import can_construct
 
 test_cases = [
     ("skateboard", ["ska", "t", "board", "eboar", "teb"], False),
