@@ -1,6 +1,6 @@
 import pytest
 from src.DYNAMIC_PROGRAMMING.all_construct.all_construct import all_construct
-from conftest import reset_defaults
+from tests.conftest import reset_defaults
 
 test_cases = [
     ("skateboard", ["ska", "t", "board", "eboar", "teb"], []),
