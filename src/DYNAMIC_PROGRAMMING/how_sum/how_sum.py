@@ -17,3 +17,15 @@ def how_sum(target, numbers, memo={}):
 
     memo[target] = None
     return None
+
+
+def how_sum_tabularised(target, numbers):
+    table = [None for _ in range(target + 1)]
+    table[0] = []
+
+    for i in range(len(table)):
+        if table[i] is not None:
+            for num in numbers:
+                if i + num <= target:
+                    table[i + num] = table[i] + [num]
+    return table[target]
