@@ -102,8 +102,9 @@ def can_sum_tabularised(target, denoms):
     table[0] = True
 
     for i in range(target + 1):
-        for number in denoms:
-            if table[i] and i + number < len(table):
-                table[i + number] = True
+        if table[i]:
+            for number in denoms:
+                if i + number < len(table):
+                    table[i + number] = True
 
     return table[target]
