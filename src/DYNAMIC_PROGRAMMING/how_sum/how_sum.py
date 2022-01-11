@@ -19,6 +19,12 @@ def how_sum(target, numbers, memo={}):
     return None
 
 
+# TIME:
+# n long array for the target sum
+# m long numbers array
+# we create a copy of the numbers array (m) which will hold all numbers adding to n
+# WORST CASE: n * m ^ 2
+# SPACE: n * m <- because potentially we could create an m long array for every value of n
 def how_sum_tabularised(target, numbers):
     table = [None for _ in range(target + 1)]
     table[0] = []
