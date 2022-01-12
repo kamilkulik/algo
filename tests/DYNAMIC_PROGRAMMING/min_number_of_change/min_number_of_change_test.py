@@ -2,7 +2,7 @@ import pytest
 from src.DYNAMIC_PROGRAMMING.min_number_of_change.min_number_of_change import (
     min_num_of_change,
 )
-from src.DYNAMIC_PROGRAMMING.best_sum.best_sum import best_sum
+from src.DYNAMIC_PROGRAMMING.best_sum.best_sum import best_sum, best_sum_tabularised
 from tests.conftest import reset_defaults
 
 test_cases = [
@@ -28,4 +28,10 @@ def test_num_number_of_change(denoms, amount, min_num_of_coins):
 def test_best_sum(denoms, amount, min_num_of_coins):
     reset_defaults(best_sum)
     result = best_sum(amount, denoms)
+    assert (len(result) if result is not None else -1) == min_num_of_coins
+
+
+@pytest.mark.parametrize("denoms, amount, min_num_of_coins", test_cases, ids=ids)
+def test_best_sum_tabularised(denoms, amount, min_num_of_coins):
+    result = best_sum_tabularised(amount, denoms)
     assert (len(result) if result is not None else -1) == min_num_of_coins
