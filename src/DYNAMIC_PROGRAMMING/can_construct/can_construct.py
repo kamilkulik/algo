@@ -11,3 +11,16 @@ def can_construct(word, wordbank, memo={}):
                 return True
     memo[word] = False
     return False
+
+
+def can_construct_tabularised(word, wordbank):
+    table = [False for _ in range(len(word) + 1)]
+    table[0] = True
+
+    for i in range(len(table)):
+        if table[i]:
+            for prefix in wordbank:
+                current_word = word[i:]
+                if current_word.startswith(prefix) and i + len(prefix) <= len(table):
+                    table[i + len(prefix)] = True
+    return table[-1]
