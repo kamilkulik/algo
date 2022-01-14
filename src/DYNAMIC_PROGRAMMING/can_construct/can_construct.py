@@ -21,6 +21,6 @@ def can_construct_tabularised(word, wordbank):
         if table[i]:
             for prefix in wordbank:
                 current_word = word[i:]
-                if current_word.startswith(prefix) and i + len(prefix) <= len(table):
+                if current_word == prefix and i + len(prefix) <= len(table):
                     table[i + len(prefix)] = True
     return table[-1]
