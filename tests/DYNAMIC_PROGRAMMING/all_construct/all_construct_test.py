@@ -1,5 +1,8 @@
 import pytest
-from src.DYNAMIC_PROGRAMMING.all_construct.all_construct import all_construct
+from src.DYNAMIC_PROGRAMMING.all_construct.all_construct import (
+    all_construct,
+    all_construct_tabularised,
+)
 from tests.conftest import reset_defaults
 
 test_cases = [
@@ -40,3 +43,8 @@ ids = ["word: {}".format(case[0]) for case in test_cases]
 def test_count_construct(word, wordbank, constructable):
     reset_defaults(all_construct)
     assert all_construct(word, wordbank) == constructable
+
+
+@pytest.mark.parametrize("word, wordbank, constructable", test_cases, ids=ids)
+def test_count_construct_tabularised(word, wordbank, constructable):
+    assert all_construct_tabularised(word, wordbank) == constructable
