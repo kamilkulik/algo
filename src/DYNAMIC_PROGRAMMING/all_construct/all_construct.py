@@ -12,3 +12,7 @@ def all_construct(word, wordbank, memo={}):
             combinations = combinations + [word_way for word_way in word_ways]
     memo[word] = combinations
     return combinations
+
+
+def all_construct_tabularised(target, wordbank):
+    
