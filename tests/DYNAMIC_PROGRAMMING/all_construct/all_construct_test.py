@@ -47,4 +47,4 @@ def test_count_construct(word, wordbank, constructable):
 
 @pytest.mark.parametrize("word, wordbank, constructable", test_cases, ids=ids)
 def test_count_construct_tabularised(word, wordbank, constructable):
-    assert all_construct_tabularised(word, wordbank) == constructable
+    assert sorted(all_construct_tabularised(word, wordbank)) == sorted(constructable)

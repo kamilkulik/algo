@@ -15,4 +15,18 @@ def all_construct(word, wordbank, memo={}):
 
 
 def all_construct_tabularised(target, wordbank):
-    
+    table = [[] for _ in range(len(target) + 1)]
+    table[0] = [[]]
+
+    for i in range(len(table)):
+        if len(table[i]):
+            current_substring = target[i:]
+            for word in wordbank:
+                if i + len(word) <= len(target) and current_substring.startswith(word):
+
+                    combination = map(lambda substring: substring + [word], table[i])
+                    combination_final = [element for element in combination]
+
+                    table[i + len(word)] += combination_final
+
+    return table[-1]
