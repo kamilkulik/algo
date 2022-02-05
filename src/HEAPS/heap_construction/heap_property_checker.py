@@ -1,5 +1,5 @@
 from xmlrpc.client import Boolean
-from HEAPS.heap_construction.heap_construction import Heap
+from src.HEAPS.heap_construction.heap_construction import Heap
 
 
 def heap_property_checker(HEAP_FUNCTION, heap: Heap):
