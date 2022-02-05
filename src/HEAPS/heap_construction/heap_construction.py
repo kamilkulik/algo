@@ -8,10 +8,10 @@ class Heap:
         self.length = len(self.heap)
 
     def __build_heap(self, array):
-        self.heap = array
-        last_parent_node = (len(array) - 1) // 2
-        for i in range(0, last_parent_node):
-            self.__sift_down(i, self.length - 1, self.heap)
+        last_parent_node = (len(array) - 2) // 2
+        for i in reversed(range(last_parent_node + 1)):
+            self.__sift_down(i, len(array) - 1, array)
+        return array
 
     def __sift_down(self, node_idx, end_idx, heap):
         parent_node = node_idx
@@ -58,7 +58,7 @@ class Heap:
     def insert(self, value):
         # IDEA: append the new value to the end of heap and sift it up into position
         self.heap.append(value)
-        self.sift_up(self.length - 1, self.heap)
+        self.__sift_up(self.length - 1, self.heap)
 
     def peek(self):
         return self.heap[0]
