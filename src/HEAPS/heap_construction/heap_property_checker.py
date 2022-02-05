@@ -1,8 +1,10 @@
-from xmlrpc.client import Boolean
+from typing import Callable
 from src.HEAPS.heap_construction.heap_construction import Heap
 
 
-def heap_property_checker(HEAP_FUNCTION, heap: Heap):
+def heap_property_checker(
+    HEAP_FUNCTION: Callable[[int, int], bool], heap: Heap
+) -> bool:
     if not heap.length:
         return False
     for i in range(heap.length):
