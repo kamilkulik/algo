@@ -24,6 +24,24 @@ test_cases = [
                 "min_heap_property_satisfied": True,
                 "output": -11,
             },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": -10,
+            },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": -7,
+            },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": -7,
+            },
         ],
     )
 ]
