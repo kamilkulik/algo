@@ -58,6 +58,7 @@ class Heap:
     def insert(self, value):
         # IDEA: append the new value to the end of heap and sift it up into position
         self.heap.append(value)
+        self.lenght += 1
         self.__sift_up(self.length - 1, self.heap)
 
     def peek(self):
@@ -66,7 +67,9 @@ class Heap:
     def remove(self):
         # IDEA: move head node to the end of the heap and pop it from there
         self.__swap(0, self.length - 1, self.heap)
-        removed_node = self.heap.pop(-1)
+        removed_node = self.heap.pop()
+        self.length -= 1
+        self.__sift_down(0, self.length - 1, self.heap)
         return removed_node
 
 
