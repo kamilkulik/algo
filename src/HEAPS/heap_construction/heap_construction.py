@@ -1,17 +1,56 @@
+from random import paretovariate
+
+
 class Heap:
     def __init__(self, HEAP_FUNCTION, array):
         self.HEAP_FUNCTION = HEAP_FUNCTION
-        self.heap = self.build_heap(array)
+        self.heap = self.__build_heap(array)
         self.length = len(self.heap)
 
     def __build_heap(self, array):
-        pass
+        self.heap = array
+        last_parent_node = (len(array) - 1) // 2
+        for i in range(0, last_parent_node):
+            self.__sift_down(i, self.length - 1, self.heap)
 
     def __sift_down(self, node_idx, end_idx, heap):
-        pass
+        parent_node = node_idx
+        child_node_idx = parent_node * 2 + 1
+        while child_node_idx < end_idx:
+            second_child_node_idx = child_node_idx + 1
+            children_nodes = [child_node_idx, second_child_node_idx]
+            smaller_child_idx = (
+                children_nodes.pop(0)
+                if heap[child_node_idx] < heap[second_child_node_idx]
+                else children_nodes.pop(1)
+            )
+            greater_child_idx = children_nodes[0]
+            if self.HEAP_FUNCTION(heap[smaller_child_idx], heap[greater_child_idx]):
+                # MIN heap
+                if heap[parent_node] < heap[smaller_child_idx]:
+                    self.__swap(parent_node, smaller_child_idx, heap)
+                    parent_node = smaller_child_idx
+                    child_node_idx = parent_node * 2 + 1
+                else:
+                    break
+            else:
+                # MAX heap
+                if heap[parent_node] < heap[greater_child_idx]:
+                    self.__swap(parent_node, greater_child_idx, heap)
+                    parent_node = greater_child_idx
+                    child_node_idx = parent_node * 2 + 1
+                else:
+                    break
 
     def __sift_up(self, node_idx, heap):
-        pass
+        child_node = node_idx
+        parent_node = (node_idx - 1) // 2
+        while child_node > 0 and self.HEAP_FUNCTION(
+            heap[child_node], heap[parent_node]
+        ):
+            self.__swap(child_node, parent_node, heap)
+            child_node = parent_node
+            parent_node = (child_node - 1) // 2
 
     def __swap(self, i, j, heap):
         heap[i], heap[j] = heap[j], heap[i]
@@ -29,3 +68,11 @@ class Heap:
         self.__swap(0, self.length - 1, self.heap)
         removed_node = self.heap.pop(-1)
         return removed_node
+
+
+def MIN_FUNCTION(a, b):
+    return a < b
+
+
+def MAX_FUNCTION(a, b):
+    return a > b
