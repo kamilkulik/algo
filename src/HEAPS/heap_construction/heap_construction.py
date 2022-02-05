@@ -14,33 +14,28 @@ class Heap:
         return array
 
     def __sift_down(self, node_idx, end_idx, heap):
-        parent_node = node_idx
-        child_node_idx = parent_node * 2 + 1
+        child_node_idx = node_idx * 2 + 1
         while child_node_idx < end_idx:
-            second_child_node_idx = child_node_idx + 1
-            children_nodes = [child_node_idx, second_child_node_idx]
-            smaller_child_idx = (
-                children_nodes.pop(0)
-                if heap[child_node_idx] < heap[second_child_node_idx]
-                else children_nodes.pop(1)
+            second_child_node_idx = (
+                child_node_idx + 1 if child_node_idx <= end_idx else -1
             )
-            greater_child_idx = children_nodes[0]
-            if self.HEAP_FUNCTION(heap[smaller_child_idx], heap[greater_child_idx]):
-                # MIN heap
-                if heap[parent_node] < heap[smaller_child_idx]:
-                    self.__swap(parent_node, smaller_child_idx, heap)
-                    parent_node = smaller_child_idx
-                    child_node_idx = parent_node * 2 + 1
+            # CASE 1: two children
+            if second_child_node_idx != -1:
+                if self.HEAP_FUNCTION(
+                    heap[child_node_idx], heap[second_child_node_idx]
+                ):
+                    idx_to_swap = child_node_idx
                 else:
-                    break
+                    idx_to_swap = second_child_node_idx
+            # CASE 2: one child
             else:
-                # MAX heap
-                if heap[parent_node] < heap[greater_child_idx]:
-                    self.__swap(parent_node, greater_child_idx, heap)
-                    parent_node = greater_child_idx
-                    child_node_idx = parent_node * 2 + 1
-                else:
-                    break
+                idx_to_swap = child_node_idx
+            if self.HEAP_FUNCTION(heap[idx_to_swap], heap[node_idx]):
+                self.__swap(node_idx, idx_to_swap, heap)
+                node_idx = idx_to_swap
+                child_node_idx = node_idx * 2 + 1
+            else:
+                return
 
     def __sift_up(self, node_idx, heap):
         parent_node_idx = (node_idx - 1) // 2
@@ -58,7 +53,7 @@ class Heap:
     def insert(self, value):
         # IDEA: append the new value to the end of heap and sift it up into position
         self.heap.append(value)
-        self.lenght += 1
+        self.length += 1
         self.__sift_up(self.length - 1, self.heap)
 
     def peek(self):
@@ -73,9 +68,9 @@ class Heap:
         return removed_node
 
 
-def MIN_FUNCTION(a, b):
-    return a < b
-
-
 def MAX_FUNCTION(a, b):
     return a > b
+
+
+def MIN_FUNCTION(a, b):
+    return a < b
