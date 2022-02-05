@@ -43,14 +43,14 @@ class Heap:
                     break
 
     def __sift_up(self, node_idx, heap):
-        child_node = node_idx
-        parent_node = (node_idx - 1) // 2
-        while child_node > 0 and self.HEAP_FUNCTION(
-            heap[child_node], heap[parent_node]
-        ):
-            self.__swap(child_node, parent_node, heap)
-            child_node = parent_node
-            parent_node = (child_node - 1) // 2
+        parent_node_idx = (node_idx - 1) // 2
+        while node_idx > 0:
+            if self.HEAP_FUNCTION(heap[node_idx], heap[parent_node_idx]):
+                self.__swap(node_idx, parent_node_idx, heap)
+                node_idx = parent_node_idx
+                parent_node_idx = (node_idx - 1) // 2
+            else:
+                return
 
     def __swap(self, i, j, heap):
         heap[i], heap[j] = heap[j], heap[i]
