@@ -11,7 +11,7 @@ def seive_of_eratosthenes(n: int) -> List[int]:
 
     # we don't need to check to n, because
     # one of the facts needs to be smaller than square root of n
-    for i in range(2, isqrt(n)):
+    for i in range(2, isqrt(n) + 1):
         if is_prime[i]:
             # we can start at the square of i
             # if we have a factor less than square of i
@@ -20,6 +20,3 @@ def seive_of_eratosthenes(n: int) -> List[int]:
                 is_prime[x] = False
 
     return [i for i in range(n) if is_prime[i]]
-
-
-print(seive_of_eratosthenes(25))
