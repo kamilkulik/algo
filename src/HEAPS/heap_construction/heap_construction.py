@@ -15,9 +15,9 @@ class Heap:
 
     def __sift_down(self, node_idx, end_idx, heap):
         child_node_idx = node_idx * 2 + 1
-        while child_node_idx < end_idx:
+        while child_node_idx <= end_idx:
             second_child_node_idx = (
-                child_node_idx + 1 if child_node_idx <= end_idx else -1
+                node_idx * 2 + 2 if node_idx * 2 + 2 <= end_idx else -1
             )
             # CASE 1: two children
             if second_child_node_idx != -1:
