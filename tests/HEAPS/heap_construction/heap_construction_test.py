@@ -43,7 +43,102 @@ test_cases = [
                 "output": -7,
             },
         ],
-    )
+    ),
+    (
+        [5],
+        [
+            {
+                "argument": 4,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 4,
+            },
+            {
+                "argument": 15,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 4,
+            },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": 4,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 5,
+            },
+            {
+                "argument": 7,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 5,
+            },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": 5,
+            },
+            {
+                "argument": 7,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": 10,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 7,
+            },
+            {
+                "argument": None,
+                "method": "remove",
+                "min_heap_property_satisfied": True,
+                "output": 7,
+            },
+            {
+                "argument": 20,
+                "method": "insert",
+                "min_heap_property_satisfied": True,
+                "output": None,
+            },
+            {
+                "argument": None,
+                "method": "peek",
+                "min_heap_property_satisfied": True,
+                "output": 7,
+            },
+        ],
+    ),
 ]
 
 
