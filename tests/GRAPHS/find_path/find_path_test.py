@@ -1,5 +1,5 @@
 import pytest
-from src.GRAPHS.find_path.find_path import find_path, find_all_paths
+from src.GRAPHS.find_path.find_path import find_path, find_all_paths, find_shortest_path
 
 test_cases = [
     (
@@ -15,6 +15,7 @@ test_cases = [
         "D",
         ["A", "B", "C", "D"],
         [["A", "B", "C", "D"], ["A", "B", "D"], ["A", "C", "D"]],
+        ["A", "B", "D"],
     )
 ]
 
@@ -24,11 +25,22 @@ ids = [
 ]
 
 
-@pytest.mark.parametrize("graph, start, end, path, _", test_cases, ids=ids)
-def test_find_path(graph, start, end, path, _):
+@pytest.mark.parametrize(
+    "graph, start, end, path, all_paths, shortest_path", test_cases, ids=ids
+)
+def test_find_path(graph, start, end, path, all_paths, shortest_path):
     assert find_path(graph, start, end) == path
 
 
-@pytest.mark.parametrize("graph, start, end, path, all_paths", test_cases)
-def test_find_all_paths(graph, start, end, path, all_paths):
+@pytest.mark.parametrize(
+    "graph, start, end, path, all_paths, shortest_path", test_cases
+)
+def test_find_all_paths(graph, start, end, path, all_paths, shortest_path):
     assert find_all_paths(graph, start, end) == all_paths
+
+
+@pytest.mark.parametrize(
+    "graph, start, end, path, all_paths, shortest_path", test_cases
+)
+def test_find_shortest_path(graph, start, end, path, all_paths, shortest_path):
+    assert find_shortest_path(graph, start, end) == shortest_path
