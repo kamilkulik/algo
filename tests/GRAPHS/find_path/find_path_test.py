@@ -1,5 +1,5 @@
 import pytest
-from src.GRAPHS.find_path.find_path import find_path
+from src.GRAPHS.find_path.find_path import find_path, find_all_paths
 
 test_cases = [
     (
@@ -14,15 +14,21 @@ test_cases = [
         "A",
         "D",
         ["A", "B", "C", "D"],
+        [["A", "B", "C", "D"], ["A", "B", "D"], ["A", "C", "D"]],
     )
 ]
 
 ids = [
-    f"Start {test_case[1]}, end {test_case[2]} expected path: {test_case[2]}"
+    f"Start {test_case[1]}, end {test_case[2]} expected path: {test_case[3]}"
     for test_case in test_cases
 ]
 
 
-@pytest.mark.parametrize("graph, start, end, path", test_cases, ids=ids)
-def test_find_path(graph, start, end, path):
+@pytest.mark.parametrize("graph, start, end, path, _", test_cases, ids=ids)
+def test_find_path(graph, start, end, path, _):
     assert find_path(graph, start, end) == path
+
+
+@pytest.mark.parametrize("graph, start, end, path, all_paths", test_cases)
+def test_find_all_paths(graph, start, end, path, all_paths):
+    assert find_all_paths(graph, start, end) == all_paths
